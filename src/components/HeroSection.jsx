@@ -2,10 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 
 const HeroSection = () => {
-  const [hoveredButton, setHoveredButton] = useState(null);
-
+  // const [hoveredButton, setHoveredButton] = useState(null);
+  const [active, setActive] = useState('start');
   return (
-    <div className="w-[90%]  bg-[#f3f4f6]  flex flex-col items-center justify-center ">
+    <div className="w-[90%]  bg-[#f3f4f6]  flex flex-col items-center justify-center pb-50 rounded-b-[40px] mb-10 ">
       <div className='w-full h-[85px] flex flex-row justify-between items-center'>
         <div className='w-1/5 h-full bg-white rounded-br-[40px] '></div>
         <div className='w-3/5 h-full bg-[white] flex flex-col items-center justify-start'>
@@ -19,37 +19,38 @@ const HeroSection = () => {
 
         </div>
       </div>
-      <h1 className="text-4xl mt-12 md:text-6xl lg:text-7xl font-bold text-center max-w-6xl mx-auto leading-tight tracking-tight text-gray-900">
+      <h1 className="text-4xl mt-12 md:text-6xl lg:text-7xl font-bold text-center max-w-7xl mx-auto leading-tight tracking-wider text-gray-900">
         <span className="block mb-2">AI Agent + AI WhatsApp</span>
         <span className="block mb-2">Marketing Campaigns For</span>
         <span className="block mb-2">Ecom That Get You Sales &</span>
         <span className="block">Automate Support</span>
       </h1>
 
-      <div className="flex gap-4 mt-12">
+
+      <div className="flex mt-12 bg-white p-1 rounded-full relative items-center w-full max-w-md overflow-hidden">
+        <div
+          className={`absolute w-1/2 rounded-full bg-lime-300 z-10 h-[88%]  transition-transform duration-400 transform 
+          ${active === 'book' ? 'translate-x-[215px]' : 'translate-x-0'}`}
+        ></div>
+
+        {/* The two buttons take equal space using flex-1 */}
         <button
-          className={`px-8 py-3 rounded-full text-base font-medium transition-all duration-300 border
-            ${hoveredButton === 'trial'
-              ? 'bg-[#c3f53b]  border-transparent'
-              : 'bg-white text-gray-800 border-gray-200'}`}
-          onMouseEnter={() => setHoveredButton('trial')}
-          onMouseLeave={() => setHoveredButton(null)}
+          onMouseEnter={() => setActive('start')}
+          onMouseLeave={() => setActive('start')}
+          className="flex-1 px-8 py-3 rounded-full text-base font-medium z-20 transition-all duration-300 text-center cursor-pointer"
         >
           Start free trial
         </button>
         <button
-          className={`px-8 py-3 rounded-full text-base font-medium transition-all duration-300 border
-            ${hoveredButton === 'demo'
-              ? 'bg-[#c3f53b] text-black border-transparent'
-              : 'bg-white text-gray-800 border-gray-200'}`}
-          onMouseEnter={() => setHoveredButton('demo')}
-          onMouseLeave={() => setHoveredButton(null)}
+          onMouseEnter={() => setActive('book')}
+          onMouseLeave={() => setActive('start')}
+          className="flex-1 px-8 py-3 rounded-full text-base font-medium z-20 transition-all duration-300 text-center cursor-pointer"
         >
           Book a demo
         </button>
       </div>
+     
 
-      {/* Floating Contact Buttons */}
       <div className="fixed bottom-8 right-8 flex flex-col gap-4">
         <button className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center transition-transform duration-300 hover:scale-110">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">

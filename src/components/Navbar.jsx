@@ -90,7 +90,7 @@ const Navbar = () => {
           ? 'left-1/2 transform -translate-x-1/2 w-4/5 bg-white/30 backdrop-blur-md shadow-lg rounded-full '
           : 'left-0 right-0 w-full bg-transparent'
         }`}
-      style={scrolled ? { top: '20px' } : { top: '30px' }}
+      style={scrolled ? { top: '20px' } : { top: '40px' }}
     >
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between gap-2 p-2">
