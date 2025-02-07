@@ -5,7 +5,7 @@ const HeroSection = () => {
   const [hoveredButton, setHoveredButton] = useState(null);
 
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col items-center justify-center px-4 py-20">
+    <div className="w-full  bg-white flex flex-col items-center justify-center px-4 py-36">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center max-w-6xl mx-auto leading-tight tracking-tight text-gray-900">
         <span className="block mb-2">AI Agent + AI WhatsApp</span>
         <span className="block mb-2">Marketing Campaigns For</span>

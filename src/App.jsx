@@ -19,7 +19,7 @@ function App() {
       <HeroSection />
       <Slider />
       <FeatureGrid />
-      <div className="mb-100"> {/* Added wrapper with margin-bottom */}
+      <div className="mb-40"> {/* Added wrapper with margin-bottom */}
         <Pg />
       </div>
       <div className="mb-20 "> 

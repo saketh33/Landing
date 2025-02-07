@@ -17,7 +17,7 @@ const Slider = () => {
   const svgImages = [Dalfilo, Hike, Latch, lat, Liforme, Crazy, Byr, Paw, Pharma, Supermedia, Jackery, Tropicfeel];
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center py-20">
+    <div className=" bg-white    flex items-center justify-center">
       <div className="w-full max-w-full px-4">
         <h1 className="text-4xl md:text-5xl font-light text-center mb-16 text-black">
           We Welcome Everyone Who Is Interested In
