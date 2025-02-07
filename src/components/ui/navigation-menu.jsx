@@ -48,11 +48,12 @@ const NavigationMenuTrigger = React.forwardRef(({ className, children, ...props 
 ));
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 
+// Ensure this is declared only once
 const NavigationMenuContent = React.forwardRef(({ className, ...props }, ref) => (
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "absolute left-0 top-full w-[520px] p-6 bg-white border border-slate-200 rounded-md shadow-lg", // Positioned absolutely below the trigger
+      "absolute left-0 top-full w-auto min-w-[520px] max-w-[700px] p-6 bg-white border border-slate-200 rounded-md shadow-lg overflow-y-auto",
       className
     )}
     {...props}
