@@ -8,10 +8,11 @@ import FeatureGrid from './components/FeatureGrid'
 import Slider from './components/Slider'
 import HeroSection from './components/HeroSection'
 import BlackWarpBackground from './components/BlackWrapBackground'
-
+import RootLayout from './RootLayout'
 function App() {
   return (
-    <div className='flex flex-col items-center py-8'>
+    <RootLayout>
+      <div className='flex flex-col items-center py-8'>
       <Navbar />
       <HeroSection />
       <Slider />
@@ -25,6 +26,8 @@ function App() {
       </div>
       <Footer />
     </div>
+      </RootLayout>
+    
   )
 }
 
