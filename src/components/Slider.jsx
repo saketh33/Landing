@@ -34,7 +34,7 @@ const Slider = () => {
                     className="flex items-center justify-center w-[100px] h-[100px] 
                                 rounded-lg mx-4 overflow-hidden
                               transition-colors duration-300
-                              hover:shadow-xl"
+                              "
                   >
                     <img
                       src={Svg}
