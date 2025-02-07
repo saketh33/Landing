@@ -10,11 +10,12 @@ import HeroSection from './components/HeroSection'
 import p1 from './assets/p1.png'
 import p2 from './assets/p2.png'
 
+import BlackWarpBackground from './components/BlackWrapBackground'
+import RootLayout from './RootLayout'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className='flex flex-col items-center py-8'>
+    <RootLayout>
+      <div className='flex flex-col items-center py-8'>
       <Navbar />
       <HeroSection />
       <div className='w-full flex items-center justify-center -mt-45 relative h-[600px] z-10'>
@@ -31,11 +32,14 @@ function App() {
       <div className="mb-40">
         <Pg />
       </div>
-      <div className="mb-20">
-        <SetupOneKey />
+      <BlackWarpBackground />
+      <div className="mb-20 "> 
+      <SetupOneKey />
       </div>
       <Footer />
     </div>
+      </RootLayout>
+    
   )
 }
 

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black rounded-t-[5rem] text-white p-10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-black rounded-t-[5rem] text-white p-10 w-full">
+      <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8">
         {/* Products Section */}
         <div>
           <h3 className="font-bold text-lg mb-4">Products</h3>
@@ -52,7 +52,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t-xl border-gray-700 mt-8 pt-8 text-center">
+      <div className="border-t border-gray-700 mt-8 pt-8 text-center">
         <p>© 2019 - {new Date().getFullYear()} OneKey Limited. All Rights Reserved.</p>
         <div className="flex justify-center space-x-4 mt-4">
           <a href="#" className="hover:text-gray-400">Help</a>
