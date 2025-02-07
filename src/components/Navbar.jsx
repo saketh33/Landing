@@ -1,6 +1,23 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import logo from '../assets/logo.png';
-import { Globe, ShoppingBag, ArrowRight, Boxes, Lock, BookOpen, Gift, MessageSquare, Puzzle, Code, FileText, LifeBuoy, Settings, Users, Zap } from 'lucide-react';
+import {
+  Globe,
+  ShoppingBag,
+  ArrowRight,
+  Boxes,
+  Lock,
+  BookOpen,
+  Gift,
+  MessageSquare,
+  Puzzle,
+  Code,
+  FileText,
+  LifeBuoy,
+  Settings,
+  Users,
+  Zap,
+} from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,45 +32,68 @@ const Badge = ({ children, variant = 'default' }) => {
   const variants = {
     default: 'bg-gray-100 text-gray-900',
     secondary: 'bg-gray-100 text-gray-900',
-    outline: 'border border-gray-200 text-gray-900'
+    outline: 'border border-gray-200 text-gray-900',
   };
 
   return (
-    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ${variants[variant]}`}>
+    <span
+      className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ${variants[variant]}`}
+    >
       {children}
     </span>
   );
 };
 
-const ListItem = React.forwardRef(({ className, title, children, icon: Icon, badge, ...props }, ref) => {
-  return (
-    <NavigationMenuLink asChild>
-      <a
-        ref={ref}
-        className="block select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100 hover:text-gray-900"
-        {...props}
-      >
-        <div className="flex items-center gap-2">
-          {Icon && <Icon className="h-4 w-4" />}
+const ListItem = React.forwardRef(
+  ({ className, title, children, icon: Icon, badge, ...props }, ref) => {
+    return (
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className="block select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100 hover:text-gray-900"
+          {...props}
+        >
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium leading-none">{title}</span>
-            {badge && <Badge variant="secondary">{badge}</Badge>}
+            {Icon && <Icon className="h-4 w-4" />}
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium leading-none">{title}</span>
+              {badge && <Badge variant="secondary">{badge}</Badge>}
+            </div>
           </div>
-        </div>
-        <p className="line-clamp-2 text-sm leading-snug text-gray-500">
-          {children}
-        </p>
-      </a>
-    </NavigationMenuLink>
-  );
-});
+          <p className="line-clamp-2 text-sm leading-snug text-gray-500">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    );
+  }
+);
 ListItem.displayName = "ListItem";
 
 const Navbar = () => {
+  // State to track if the page has been scrolled more than 60px
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 60);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+    <nav
+      className={`fixed z-50 transition-all duration-500 
+        ${scrolled
+          ? 'left-1/2 transform -translate-x-1/2 w-4/5 bg-white/30 backdrop-blur-md shadow-lg rounded-full '
+          : 'left-0 right-0 w-full bg-transparent'
+        }`}
+      style={scrolled ? { top: '20px' } : { top: '30px' }}
+    >
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-16 items-center justify-between gap-2 p-2">
           {/* Logo */}
           <div className="flex items-center bg-black rounded-2xl overflow-hidden">
             <a href="/" className="flex items-center">
@@ -63,13 +103,15 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <NavigationMenu className="hidden md:block">
-            <NavigationMenuList className="flex gap-4">
+            <NavigationMenuList className="flex gap-3">
               {/* Products Dropdown */}
               <NavigationMenuItem>
                 <div className="relative">
                   <NavigationMenuTrigger className="group/res relative flex w-auto cursor-pointer items-center gap-2 rounded-full border bg-white p-2 px-6 text-center font-semibold overflow-hidden">
                     <div className="absolute left-2 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-black transition-all duration-500 group-hover/res:scale-[100] group-hover/res:bg-black"></div>
-                    <span className="relative z-10 ml-3 transition-colors duration-200 group-hover/res:text-white">Products</span>
+                    <span className="relative z-10 ml-3 transition-colors duration-200 group-hover/res:text-white">
+                      Products
+                    </span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="absolute top-full left-0 mt-2">
                     <div className="w-[600px] p-4 md:grid-cols-2 lg:w-[700px]">
@@ -107,8 +149,13 @@ const Navbar = () => {
                       <div className="p-4 pt-0">
                         <div className="rounded-lg border bg-gray-50 p-4">
                           <h4 className="mb-2 text-sm font-medium">Compare Models</h4>
-                          <p className="text-sm text-gray-500">Find the perfect OneKey wallet for your needs.</p>
-                          <a href="/compare" className="mt-4 flex items-center text-sm font-medium text-gray-900 hover:text-gray-600">
+                          <p className="text-sm text-gray-500">
+                            Find the perfect OneKey wallet for your needs.
+                          </p>
+                          <a
+                            href="/compare"
+                            className="mt-4 flex items-center text-sm font-medium text-gray-900 hover:text-gray-600"
+                          >
                             View Comparison <ArrowRight className="ml-1 h-4 w-4" />
                           </a>
                         </div>
@@ -123,7 +170,9 @@ const Navbar = () => {
                 <div className="relative">
                   <NavigationMenuTrigger className="group/app relative flex w-auto cursor-pointer items-center gap-2 rounded-full border bg-white p-2 px-6 text-center font-semibold overflow-hidden">
                     <div className="absolute left-2 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-black transition-all duration-100 group-hover/app:scale-[100] group-hover/app:bg-black"></div>
-                    <span className="relative z-10 ml-3 transition-colors duration-200 group-hover/app:text-white">App</span>
+                    <span className="relative z-10 ml-3 transition-colors duration-200 group-hover/app:text-white">
+                      App
+                    </span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="absolute top-full left-0 mt-2">
                     <div className="w-[600px] p-4">
@@ -135,7 +184,10 @@ const Navbar = () => {
                             <p className="mt-2 text-sm text-gray-500">
                               Everything you need to know about cryptocurrency security and wallet management.
                             </p>
-                            <a href="/learn" className="mt-4 inline-flex items-center text-sm font-medium text-gray-900 hover:text-gray-600">
+                            <a
+                              href="/learn"
+                              className="mt-4 inline-flex items-center text-sm font-medium text-gray-900 hover:text-gray-600"
+                            >
                               Start Learning <ArrowRight className="ml-1 h-4 w-4" />
                             </a>
                           </div>
@@ -165,7 +217,9 @@ const Navbar = () => {
                 <div className="relative">
                   <NavigationMenuTrigger className="group/dev relative flex w-auto cursor-pointer items-center gap-2 rounded-full border bg-white p-2 px-6 text-center font-semibold overflow-hidden">
                     <div className="absolute left-2 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-black transition-all duration-100 group-hover/dev:scale-[100] group-hover/dev:bg-black"></div>
-                    <span className="relative z-10 ml-3 transition-colors duration-200 group-hover/dev:text-white">Developer</span>
+                    <span className="relative z-10 ml-3 transition-colors duration-200 group-hover/dev:text-white">
+                      Developer
+                    </span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="absolute top-full left-0 mt-2">
                     <div className="w-[600px] p-4">
@@ -195,7 +249,10 @@ const Navbar = () => {
                           </div>
                         </div>
                         <div className="mt-4 border-t pt-4">
-                          <a href="/developer/start" className="flex items-center text-sm font-medium text-gray-900 hover:text-gray-600">
+                          <a
+                            href="/developer/start"
+                            className="flex items-center text-sm font-medium text-gray-900 hover:text-gray-600"
+                          >
                             Get Started with Development <ArrowRight className="ml-2 h-4 w-4" />
                           </a>
                         </div>
@@ -210,7 +267,9 @@ const Navbar = () => {
                 <div className="relative">
                   <NavigationMenuTrigger className="group/products relative flex w-auto cursor-pointer items-center gap-2 rounded-full border bg-white p-2 px-6 text-center font-semibold overflow-hidden">
                     <div className="absolute left-2 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-black transition-all duration-500 group-hover/products:scale-[100] group-hover/products:bg-black"></div>
-                    <span className="relative z-10 ml-3 transition-colors duration-200 group-hover/products:text-white">Resource</span>
+                    <span className="relative z-10 ml-3 transition-colors duration-200 group-hover/products:text-white">
+                      Resource
+                    </span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="absolute top-full left-0 mt-2">
                     <div className="w-[750px] p-4">
@@ -247,14 +306,7 @@ const Navbar = () => {
 
           {/* Right Side */}
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <Globe className="h-5 w-5 text-gray-600" />
-              <span className="text-gray-600">English</span>
-            </div>
-
-            <ShoppingBag className="h-5 w-5 text-gray-600" />
-
-            <button className="hidden md:inline-flex flex-row rounded-full border border-gray-900 bg-white px-4 py-1.5 text-sm font-semibold text-gray-900 transition-all duration-300 hover:bg-black hover:text-white">
+            <button className="hidden md:inline-flex flex-row rounded-full bg-black px-5 py-2 text-base font-semibold text-white transition-all duration-300 hover:bg-lime-300 hover:text-black gap-1">
               <p>Free </p>
               <p>Download</p>
             </button>

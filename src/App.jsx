@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import Pg from './components/Pg'
@@ -15,20 +13,19 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className='flex flex-col items-center py-8'>
       <Navbar />
       <HeroSection />
       <Slider />
       <FeatureGrid />
-      <div className="mb-40"> {/* Added wrapper with margin-bottom */}
+      <div className="mb-40">
         <Pg />
       </div>
-      <BlackWarpBackground>HI THERE</BlackWarpBackground>
       <div className="mb-20 "> 
       <SetupOneKey />
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
 
