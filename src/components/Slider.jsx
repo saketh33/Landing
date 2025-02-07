@@ -15,27 +15,35 @@ import Tropicfeel from "../assets/Tropicfeel.svg";
 
 const Slider = () => {
   const svgImages = [Dalfilo, Hike, Latch, lat, Liforme, Crazy, Byr, Paw, Pharma, Supermedia, Jackery, Tropicfeel];
+  
+  // Create multiple copies to ensure no gaps
+  const duplicatedImages = [...svgImages, ...svgImages, ...svgImages, ...svgImages,...svgImages, ...svgImages, ...svgImages, ...svgImages,...svgImages, ...svgImages, ...svgImages, ...svgImages,...svgImages, ...svgImages, ...svgImages, ...svgImages,];
 
   return (
-    <div className=" bg-white -mt-40 flex items-center justify-center mb-30">
-      <div className="w-full max-w-full px-4">
-
+    <div className="bg-white -mt-40 flex items-center justify-center mb-30">
+      <div className="w-full max-w-full">
         <div className="space-y-12">
-          {/* First Marquee with SVGs */}
           <div className="w-full overflow-hidden">
-            <Marquee gradient={false} speed={40}>
-              <div className="flex gap-8">
-                {svgImages.map((Svg, index) => (
+            <Marquee
+              gradient={false}
+              speed={40}
+              delay={0}
+              loop={0}
+              direction="left"
+              pauseOnHover={false}
+              pauseOnClick={false}
+            >
+              <div className="flex">
+                {duplicatedImages.map((Svg, index) => (
                   <div
                     key={index}
                     className="flex items-center justify-center w-[100px] h-[100px] 
-                                rounded-lg mx-4 overflow-hidden
-                              transition-colors duration-300
-                              "
+                              rounded-lg mx-2 overflow-hidden
+                              transition-colors duration-300"
                   >
                     <img
                       src={Svg}
-                      alt={`SVG ${index + 1}`}
+                      alt={`Brand Logo ${index + 1}`}
                       className="w-full h-full object-contain p-4"
                     />
                   </div>

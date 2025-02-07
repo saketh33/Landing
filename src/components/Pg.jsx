@@ -53,12 +53,12 @@ export default function ModernCards() {
   ];
 
   return (
-    <div ref={target} className="h-[500vh] mx-auto bg-gray-600 flow-root relative">
+    <div ref={target} className="h-[500vh] mx-auto text-black flow-root relative">
       <div className="sticky top-16 flow-root">
         {/* Adjusted top-0 to top-16 to account for navbar */}
         <div className="h-screen w-screen relative flex justify-center items-center pt-16">
           {/* Added pt-16 for additional spacing */}
-          <h1 className="top-[15%] absolute text-4xl md:text-5xl text-white font-bold text-center max-w-3xl">
+          <h1 className="top-[15%] absolute text-4xl md:text-5xl text-black font-bold text-center max-w-3xl">
             {/* Adjusted top position */}
             Turn last-minute doubters into lifetime customers. Here comes the card animation.
           </h1>
