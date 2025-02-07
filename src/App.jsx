@@ -10,8 +10,6 @@ import HeroSection from './components/HeroSection'
 import BlackWarpBackground from './components/BlackWrapBackground'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className='flex flex-col items-center py-8'>
       <Navbar />
@@ -21,6 +19,7 @@ function App() {
       <div className="mb-40">
         <Pg />
       </div>
+      <BlackWarpBackground />
       <div className="mb-20 "> 
       <SetupOneKey />
       </div>
