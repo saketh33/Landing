@@ -14,32 +14,43 @@ import Jackery from "../assets/Jackery.svg";
 import Tropicfeel from "../assets/Tropicfeel.svg";
 
 const Slider = () => {
-  const svgImages = [Dalfilo, Hike, Latch, lat, Liforme, Crazy, Byr, Paw, Pharma, Supermedia, Jackery, Tropicfeel];
-  
-  // Create multiple copies to ensure no gaps
-  const duplicatedImages = [...svgImages, ...svgImages, ...svgImages, ...svgImages,...svgImages, ...svgImages, ...svgImages, ...svgImages,...svgImages, ...svgImages, ...svgImages, ...svgImages,...svgImages, ...svgImages, ...svgImages, ...svgImages,];
+  const svgImages = [
+    Dalfilo,
+    Hike,
+    Latch,
+    lat,
+    Liforme,
+    Crazy,
+    Byr,
+    Paw,
+    Pharma,
+    Supermedia,
+    Jackery,
+    Tropicfeel,
+  ];
 
   return (
-    <div className="bg-white -mt-40 flex items-center justify-center mb-30">
-      <div className="w-full max-w-full">
-        <div className="space-y-12">
-          <div className="w-full overflow-hidden">
+    <div className="bg-white -mt-40 flex items-center justify-center mb-30 w-full">
+      <div className="w-full">
+        <div className="space-y-12 w-full">
+          <div className="w-full overflow-hidden ">
             <Marquee
               gradient={false}
-              speed={40}
-              delay={0}
-              loop={0}
-              direction="left"
-              pauseOnHover={false}
+              speed={200}
+              pauseOnHover={true}
               pauseOnClick={false}
+              // autoFill={true}
+              style={{ willChange: "transform" }} // Hint for GPU acceleration
             >
-              <div className="flex">
-                {duplicatedImages.map((Svg, index) => (
+              {/* 
+                Use inline-flex and whitespace-nowrap to ensure all images remain in a single row.
+                This helps the marquee measure the content correctly for seamless looping.
+              */}
+              <div className="flex whitespace-nowrap ">
+                {svgImages.map((Svg, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-center w-[100px] h-[100px] 
-                              rounded-lg mx-2 overflow-hidden
-                              transition-colors duration-300"
+                    className="flex items-center justify-center w-[100px] h-[100px] rounded-lg mx-2 overflow-hidden transition-colors duration-100"
                   >
                     <img
                       src={Svg}
