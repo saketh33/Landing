@@ -9,6 +9,7 @@ import SetupOneKey from './components/SetupOneKey'
 import FeatureGrid from './components/FeatureGrid'
 import Slider from './components/Slider'
 import HeroSection from './components/HeroSection'
+import BlackWarpBackground from './components/BlackWrapBackground'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
       <div className="mb-40"> {/* Added wrapper with margin-bottom */}
         <Pg />
       </div>
+      <BlackWarpBackground>HI THERE</BlackWarpBackground>
       <div className="mb-20 "> 
       <SetupOneKey />
       </div>
