@@ -27,7 +27,6 @@ import {
   NavigationMenuTrigger,
 } from "./ui/navigation-menu";
 
-// Simple Badge Component
 const Badge = ({ children, variant = 'default' }) => {
   const variants = {
     default: 'bg-gray-100 text-gray-900',
@@ -71,7 +70,6 @@ const ListItem = React.forwardRef(
 ListItem.displayName = "ListItem";
 
 const Navbar = () => {
-  // State to track if the page has been scrolled more than 60px
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -85,20 +83,23 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed z-50 transition-all duration-500 
+      className={`fixed w-full transition-all duration-500 z-50
         ${scrolled
-          ? 'left-1/2 transform -translate-x-1/2 w-4/5 bg-white/30 backdrop-blur-md shadow-lg rounded-full '
-          : 'left-0 right-0 w-full bg-transparent'
+          ? 'bg-white shadow-md'
+          : 'bg-transparent'
         }`}
-      style={scrolled ? { top: '20px' } : { top: '40px' }}
+      style={{ top: scrolled ? '0' : '40px' }}
     >
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between gap-2 p-2">
-          {/* Logo */}
-          <div className="flex items-center bg-black rounded-2xl overflow-hidden">
-            <a href="/" className="flex items-center">
-              <img src={logo} alt="OneKey" className="h-12 w-15" />
-            </a>
+          {/* Logo Section */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center bg-black rounded-2xl overflow-hidden">
+              <a href="/" className="flex items-center">
+                <img src={logo} alt="OneKey" className="h-12 w-25" />
+              </a>
+            </div>
+            <span className="font-bold text-lg whitespace-nowrap">Learn Ledger</span>
           </div>
 
           {/* Navigation Links */}
