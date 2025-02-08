@@ -15,7 +15,7 @@ import RootLayout from './RootLayout'
 function App() {
   return (
     <RootLayout>
-      <div className='flex flex-col items-center py-8'>
+      <div className='flex flex-col items-center py-8 '>
       <Navbar />
       <HeroSection />
       <div className='w-full flex items-center justify-center -mt-45 relative h-[600px] z-10'>
@@ -36,8 +36,8 @@ function App() {
       <div className="mb-20 "> 
       <SetupOneKey />
       </div>
-      <Footer />
     </div>
+      <Footer />
       </RootLayout>
     
   )
