@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import one from '../assets/warp1.png';
-import two from '../assets/warp2.png';
-import three from '../assets/warp3.png';
+import one from '../assets/warp1.webp';
+import two from '../assets/warp2.webp';
+import three from '../assets/warp3.webp';
 
 const Star = () => (
   <div className="absolute -top-1 -right-1 w-6 h-6">
