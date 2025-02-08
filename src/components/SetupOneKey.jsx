@@ -1,7 +1,7 @@
 import React from 'react';
 import { Github } from 'lucide-react';
-import one from '../assets/1.png';
-import two from '../assets/2.png';
+import one from '../assets/1.webp';
+import two from '../assets/2.webp';
 
 const OneKeySetup = () => {
   return (

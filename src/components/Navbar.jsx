@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 import {
   Globe,
   ShoppingBag,
