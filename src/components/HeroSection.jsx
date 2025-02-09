@@ -21,11 +21,10 @@ const HeroSection = () => {
       </div>
       <h1 className="text-4xl mt-12 md:text-6xl lg:text-7xl font-bold text-center max-w-7xl mx-auto leading-tight tracking-wider text-gray-900">
         <span className="block mb-2">Transform Your Learning into Earning</span>
-        <span className="block mb-2">Master In-Demand Skills, Complete Challenges, Earn Crypto</span>
+        <span className="block mb-2 text-sm">Master In-Demand Skills, Complete Challenges, Earn Crypto</span>
         <span className="block mb-2"></span>
-        <span className="block">r</span>
+        <span className="block"></span>
       </h1>
-
 
       <div className="flex mt-12 bg-white p-1 rounded-full relative items-center w-full max-w-md overflow-hidden">
         <div
