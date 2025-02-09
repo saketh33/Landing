@@ -60,7 +60,7 @@ export default function ModernCards() {
           {/* Added pt-16 for additional spacing */}
           <h1 className="top-[15%] absolute text-4xl md:text-5xl text-black font-bold text-center max-w-3xl">
             {/* Adjusted top position */}
-            Turn last-minute doubters into lifetime customers. Here comes the card animation.
+            Your Knowledge Journey, Now on the Blockchain.Transform Your Learning into Earning
           </h1>
 
           {cards.map((card, idx) => (
