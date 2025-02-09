@@ -308,8 +308,8 @@ const Navbar = () => {
           {/* Right Side */}
           <div className="flex items-center space-x-4">
             <button className="hidden md:inline-flex flex-row rounded-full bg-black px-5 py-2 text-base font-semibold text-white transition-all duration-300 hover:bg-lime-300 hover:text-black gap-1">
-              <p>Free </p>
-              <p>Download</p>
+              <p>Login / </p>
+              <p>Signup</p>
             </button>
           </div>
         </div>
