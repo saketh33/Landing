@@ -21,7 +21,7 @@ const HeroSection = () => {
       </div>
       <h1 className="text-4xl mt-12 md:text-6xl lg:text-7xl font-bold text-center max-w-7xl mx-auto leading-tight tracking-wider text-gray-900">
         <span className="block mb-2">Transform Your Learning into Earning</span>
-        <span className="block mb-2 text-sm">Master In-Demand Skills, Complete Challenges, Earn Crypto</span>
+        <span className="block mb-2 text-base">Master In-Demand Skills, Complete Challenges, Earn Crypto</span>
         <span className="block mb-2"></span>
         <span className="block"></span>
       </h1>
@@ -38,14 +38,14 @@ const HeroSection = () => {
           onMouseLeave={() => setActive('start')}
           className="flex-1 px-8 py-3 rounded-full text-base font-medium z-20 transition-all duration-300 text-center cursor-pointer"
         >
-          Start free trial
+          Start Earning
         </button>
         <button
           onMouseEnter={() => setActive('book')}
           onMouseLeave={() => setActive('start')}
           className="flex-1 px-8 py-3 rounded-full text-base font-medium z-20 transition-all duration-300 text-center cursor-pointer"
         >
-          Book a demo
+          Collaborate
         </button>
       </div>
      
